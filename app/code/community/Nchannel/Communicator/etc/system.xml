@@ -130,15 +130,6 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </EMAILTEMPLATE>
-			<version translate="label">
-            <label>Communicator Extension Version</label>
-                    <frontend_type>select</frontend_type>
-                    <frontend_model>Nchannel_Communicator_Block_Adminhtml_Version</frontend_model>
-                    <sort_order>100</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-			</version>
           </fields>
         </Support>
       </groups>

@@ -13,9 +13,7 @@ class Nchannel_Communicator_Model_Observer
 		$origData = $order->getOrigData();
 		Mage::log("Order: " . $order->getIncrementId() . " Status: " . $order->getStatus(),null,'nChannel_Communicator.log');
 		Mage::log("is object new" . $order->isObjectNew(),null,'nChannel_Communicator.log');
-		Mage::log("status: " . $order->getStatus(),null,'nChannel_Communicator.log');
-		Mage::log("old status: " . $origData['status'],null,'nChannel_Communicator.log');
-		if(($order->getStatus() == "pending" || $order->getStatus() == "processing")  && $origData)
+		if($order->getStatus() == "pending" && $origData)
 		{
 			if($origData['status'] == "holded")
 			{

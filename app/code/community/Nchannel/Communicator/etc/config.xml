@@ -1,7 +1,7 @@
 <config>
   <modules>
     <Nchannel_Communicator>
-      <version>0.1.10</version>
+      <version>0.1.0</version>
     </Nchannel_Communicator>
   </modules>
   <admin>

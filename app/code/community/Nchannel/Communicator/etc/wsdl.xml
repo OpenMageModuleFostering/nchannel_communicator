@@ -32,36 +32,7 @@
   <message name="ProductutilityAttachProductToConfigurableResponse">
     <part name="result" type="xsd:string" />
   </message>
-  <message name="ProductutilityLoadSimpleProductsFromConfigurableRequest">
-    <part name="sessionId" type="xsd:string" />
-    <part name="configurableProductSKU" type="xsd:string" />
-  </message>
-  <message name="ProductutilityLoadSimpleProductsFromConfigurableResponse">
-    <part name="result" type="typens:ArrayOfString" />
-  </message>
-  <message name="ProductutilityProductLastModifiedRequest">
-    <part name="sessionId" type="xsd:string" />
-    <part name="storeView" type="xsd:string" />
-	<part name="date" type="xsd:string" />
-  </message>
-  <message name="ProductutilityProductLastModifiedResponse">
-    <part name="result" type="typens:ArrayOfString" />
-  </message>
-  <message name="ProductutilityDetachProductFromConfigurableRequest">
-    <part name="sessionId" type="xsd:string" />
-    <part name="childSku" type="xsd:string" />
-    <part name="configurableProductID" type="xsd:int" />
-  </message>
-  <message name="ProductutilityDetachProductFromConfigurableResponse">
-    <part name="result" type="xsd:string" />
-  </message>
-  <message name="ProductutilityGetConfigurableAttributeRequest">
-    <part name="sessionId" type="xsd:string" />
-    <part name="configurableProductID" type="xsd:string" />
-  </message>
-  <message name="ProductutilityGetConfigurableAttributeResponse">
-    <part name="result" type="xsd:string" />
-  </message>
+
 
   <portType name="{{var wsdl.handler}}PortType">
     <operation name="CommunicatorHello">
@@ -78,26 +49,6 @@
       <documentation>Sets up configurable attributes. </documentation>
       <input message="typens:ProductutilityAttachProductToConfigurableRequest" />
       <output message="typens:ProductutilityAttachProductToConfigurableResponse" />
-    </operation>
-	<operation name="ProductutilityLoadSimpleProductsFromConfigurable">
-      <documentation>Loads simple products from a configurable product. </documentation>
-      <input message="typens:ProductutilityLoadSimpleProductsFromConfigurableRequest" />
-      <output message="typens:ProductutilityLoadSimpleProductsFromConfigurableResponse" />
-    </operation>
-	<operation name="ProductutilityProductLastModified">
-      <documentation>Queries the last modified time of a product. </documentation>
-      <input message="typens:ProductutilityProductLastModifiedRequest" />
-      <output message="typens:ProductutilityProductLastModifiedResponse" />
-    </operation>
-	<operation name="ProductutilityDetachProductFromConfigurable">
-      <documentation>Sets up configurable attributes. </documentation>
-      <input message="typens:ProductutilityDetachProductFromConfigurableRequest" />
-      <output message="typens:ProductutilityDetachProductFromConfigurableResponse" />
-    </operation>
-	<operation name="ProductutilityGetConfigurableAttribute">
-      <documentation>Sets up configurable attributes. </documentation>
-      <input message="typens:ProductutilityGetConfigurableAttributeRequest" />
-      <output message="typens:ProductutilityGetConfigurableAttributeResponse" />
     </operation>
   </portType>
 
@@ -122,42 +73,6 @@
       </output>
     </operation>
     <operation name="ProductutilityAttachProductToConfigurable">
-      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
-      <input>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </input>
-      <output>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </output>
-    </operation>
-	<operation name="ProductutilityLoadSimpleProductsFromConfigurable">
-      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
-      <input>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </input>
-      <output>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </output>
-    </operation>
-	<operation name="ProductutilityProductLastModified">
-      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
-      <input>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </input>
-      <output>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </output>
-    </operation>
-	<operation name="ProductutilityDetachProductFromConfigurable">
-      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
-      <input>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </input>
-      <output>
-        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </output>
-    </operation>
-	<operation name="ProductutilityGetConfigurableAttribute">
       <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
       <input>
         <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />

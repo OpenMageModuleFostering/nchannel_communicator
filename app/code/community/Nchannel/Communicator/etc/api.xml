@@ -21,21 +21,9 @@
           <addAttributes translate="title" module="Communicator">
             <method>addAttributes</method>
           </addAttributes>
-          <attachProductToConfigurable translate="title" module="Communicator">
+          <attachProductToConfigurable translate="title" moduel="Communicator">
             <method>attachProductToConfigurable</method>
           </attachProductToConfigurable>
-		  <loadSimpleProductsFromConfigurable translate="title" module="Communicator">
-            <method>loadSimpleProductsFromConfigurable</method>
-          </loadSimpleProductsFromConfigurable>
-		  <productLastModified translate="title" moduel="Communicator">
-            <method>productLastModified</method>
-          </productLastModified>
-		  <detachProductFromConfigurable translate="title" module="Communicator">
-            <method>detachProductFromConfigurable</method>
-          </detachProductFromConfigurable>
-		  <getConfigurableAttribute translate="title" module="Communicator">
-            <method>getConfigurableAttribute</method>
-          </getConfigurableAttribute>
         </methods>
       </Communicator_Productutility>
     </resources>
