@@ -12,4 +12,5 @@ class Nchannel_Communicator_Model_Source_NchannelEnvironment
 			);
 	}
 }
+
 ?>
