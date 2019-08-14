@@ -50,6 +50,13 @@ class Nchannel_Communicator_Model_Api2_Stock_Item_Rest_Admin_V1 extends Mage_Cat
 			Mage::log('Min_Qty: '.$data['min_qty'],null,'nChannel_Communicator.log');
 		}
 		
+		// Is In Stock
+		if ($data['is_in_stock'] != null && $data['is_in_stock'] != '')
+		{
+			$stockItem->setData('is_in_stock', $data['is_in_stock']);
+			Mage::log('Is_In_Stock: '.$data['is_in_stock'],null,'nChannel_Communicator.log');
+		}
+		
 		if ($data['price'] != null && $data['price'] != '')
 		{
 			//$product->setPrice($data['price']);

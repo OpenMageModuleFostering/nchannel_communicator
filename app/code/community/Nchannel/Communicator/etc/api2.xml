@@ -18,12 +18,13 @@
                         <update>1</update>
                     </admin>
                 </privileges>
-                <attributes translate="sku qty min_qty notify_stock_qty" module="api2">
+                <attributes translate="sku qty min_qty notify_stock_qty is_in_stock" module="api2">
 					<sku>SKU</sku>
                     <qty>Qty</qty>
 					<min_qty>Qty for Item's Status to Become Out of Stock</min_qty>
 					<notify_stock_qty>Notify for Quantity Below</notify_stock_qty>
 					<price>Price of the Item</price>
+					<is_in_stock>Stock Availability</is_in_stock>
                 </attributes>
                 <routes>
                     <route_entity>
