@@ -11,47 +11,50 @@ class Nchannel_Communicator_Model_Observer
 		$statusConfig = Mage::getStoreConfig('Communicator/Orders/SENDONSTATUS');
 		$order = $observer->getEvent()->getOrder();
 		$origData = $order->getOrigData();
-		Mage::log("orderSaved entered",null,'nChannel_Communicator.log');
-		//$giftMessage = $order->getData('gift_message');
-		//$giftMessageOrig = $origData->getData('gift_message');
-		//Mage::log("orderSaved: " . $giftMessage,null,'nChannel_Communicator.log');
-		//Mage::log("orderSaved: " . $giftMessageOrig,null,'nChannel_Communicator.log');
+		$giftMessage = $order->getData('gift_message');
 		Mage::log("Status Configuration: " . $statusConfig,null,'nChannel_Communicator.log');
 		
-		// Check the configuration options for the status to send orders down. "All" sends every order regardless.
-		// "On Hold" orders are also processed based on this configuration option.
-		if (($order->getStatus() == $statusConfig || $statusConfig == 'all') && $origData['status'] != "holded")
+		if ($giftMessage !== '')
 		{
-			Mage::log("Order: " . $order->getIncrementId() . " Status: " . $order->getStatus(),null,'nChannel_Communicator.log');
-			Mage::log("is object new" . $order->isObjectNew(),null,'nChannel_Communicator.log');
-			Mage::log("status: " . $order->getStatus(),null,'nChannel_Communicator.log');
-			Mage::log("Order will be sent to nChannel",null,'nChannel_Communicator.log');	
-			$this->sendToAPI($observer);
+			Mage::log("Order has gift message, will not be sent to nChannel.",null,'nChannel_Communicator.log');
 		}
 		else
 		{
-			Mage::log("orderSaved",null,'nChannel_Communicator.log');
-			$order = $observer->getEvent()->getOrder();
-			$origData = $order->getOrigData();
-			Mage::log("Order: " . $order->getIncrementId() . " Status: " . $order->getStatus(),null,'nChannel_Communicator.log');
-			Mage::log("is object new" . $order->isObjectNew(),null,'nChannel_Communicator.log');
-			Mage::log("status: " . $order->getStatus(),null,'nChannel_Communicator.log');
-			Mage::log("old status: " . $origData['status'],null,'nChannel_Communicator.log');
-			if((($statusConfig == "pending" || $statusConfig == "processing") && ($order->getStatus() == $statusConfig || $order->getStatus() == 'all'))  && $origData)
+			// Check the configuration options for the status to send orders down. "All" sends every order regardless.
+			// "On Hold" orders are also processed based on this configuration option.
+			if (($order->getStatus() == $statusConfig || $statusConfig == 'all') && $origData['status'] != "holded")
 			{
-				if($origData['status'] == "holded")
-				{
-					Mage::log("Order will be sent to nChannel",null,'nChannel_Communicator.log');	
-					$this->sendToAPI($observer);
-				}else{
-					Mage::log("Order will not be sent to nChannel",null,'nChannel_Communicator.log');			
-						}
-				
+				Mage::log("Order: " . $order->getIncrementId() . " Status: " . $order->getStatus(),null,'nChannel_Communicator.log');
+				Mage::log("is object new" . $order->isObjectNew(),null,'nChannel_Communicator.log');
+				Mage::log("status: " . $order->getStatus(),null,'nChannel_Communicator.log');
+				Mage::log("Order will be sent to nChannel",null,'nChannel_Communicator.log');	
+				$this->sendToAPI($observer);
 			}
 			else
+			{
+				Mage::log("orderSaved",null,'nChannel_Communicator.log');
+				$order = $observer->getEvent()->getOrder();
+				$origData = $order->getOrigData();
+				Mage::log("Order: " . $order->getIncrementId() . " Status: " . $order->getStatus(),null,'nChannel_Communicator.log');
+				Mage::log("is object new" . $order->isObjectNew(),null,'nChannel_Communicator.log');
+				Mage::log("status: " . $order->getStatus(),null,'nChannel_Communicator.log');
+				Mage::log("old status: " . $origData['status'],null,'nChannel_Communicator.log');
+				if((($statusConfig == "pending" || $statusConfig == "processing") && ($order->getStatus() == $statusConfig || $order->getStatus() == 'all'))  && $origData)
 				{
-				Mage::log("New Order will not be sent to nChannel.",null,'nChannel_Communicator.log');		
-					}
+					if($origData['status'] == "holded")
+					{
+						Mage::log("Order will be sent to nChannel",null,'nChannel_Communicator.log');	
+						$this->sendToAPI($observer);
+					}else{
+						Mage::log("Order will not be sent to nChannel",null,'nChannel_Communicator.log');			
+							}
+					
+				}
+				else
+					{
+					Mage::log("New Order will not be sent to nChannel.",null,'nChannel_Communicator.log');		
+						}
+			}
 		}
 	}
 
@@ -59,17 +62,13 @@ class Nchannel_Communicator_Model_Observer
     {
         // Retrieve the product being updated from the event observer
 		//$info = phpinfo();
-		Mage::log("sendToAPI entered",null,'nChannel_Communicator.log');
+		Mage::log("sendToAPI",null,'nChannel_Communicator.log');
 		$enabled = Mage::getStoreConfig('Communicator/Credentials/ENABLED');
 		if($enabled)
 		{
 			$order = $observer->getEvent()->getOrder();
 			$origData = $order->getOrigData();
 			$statusConfig = Mage::getStoreConfig('Communicator/Orders/SENDONSTATUS');
-			//$giftMessage = $order->getData('gift_message');
-			//$giftMessageOrig = $origData->getData('gift_message');
-			//Mage::log("sendToAPI: " . $giftMessage,null,'nChannel_Communicator.log');
-			//Mage::log("sendToAPI: " . $giftMessageOrig,null,'nChannel_Communicator.log');
 			Mage::log("Status Configuration: " . $statusConfig,null,'nChannel_Communicator.log');
 			Mage::log("Order: " . $order->getIncrementId() . " Status: " . $order->getStatus(),null,'nChannel_Communicator.log');
 

@@ -22,7 +22,7 @@
       </Nchannel_Communicator>
     </models>
     <events>
-      <sales_order_place_after>
+<!--       <sales_order_place_after>
         <observers>
           <Nchannel_Communicator>
             <class>Nchannel_Communicator/observer</class>
@@ -30,8 +30,8 @@
             <type>singleton</type>
           </Nchannel_Communicator>
         </observers>
-      </sales_order_place_after>
-      <sales_order_save_commit_after>
+      </sales_order_place_after> -->
+      <sales_order_place_after>
         <observers>
           <Nchannel_Communicator>
             <class>Nchannel_Communicator/observer</class>
@@ -39,7 +39,7 @@
             <type>singleton</type>
           </Nchannel_Communicator>
         </observers>
-      </sales_order_save_commit_after>
+      </sales_order_place_after>
     </events>
     <helpers>
       <Communicator>
