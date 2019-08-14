@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package>
     <name>nChannel_Communicator</name>
-    <version>0.1.3</version>
+    <version>0.1.4</version>
     <stability>stable</stability>
     <license uri="https://portal.nchannel.com/Content/data/EULA_2012-04-21.pdf">nChannel EULA</license>
     <channel>community</channel>
     <extends/>
     <summary>nChannel Communicator allows for event driven communication with the nChannel API on creation of new orders.</summary>
     <description>nChannel Communicator allows for event driven communication with the nChannel API on creation of new orders.</description>
-    <notes>Fixed issues with API resources not loading in properly for linux systems.</notes>
+    <notes>Fixed issue where Order Observer did not send new orders to nChannel when status was "Processing".</notes>
     <authors><author><name>nChannel</name><user>jpepper</user><email>jpepper@nchannel.com</email></author></authors>
-    <date>2013-10-23</date>
-    <time>17:03:55</time>
-    <contents><target name="magecommunity"><dir name="Nchannel"><dir name="Communicator"><dir name="Helper"><file name="Data.php" hash="09398676d1d6ed53f141f1ecb48e0c70"/></dir><dir name="Model"><file name="Api.php" hash="9001584aa011771215b4a26d31214998"/><dir name="Helloworld"><dir name="Api"><file name="V2.php" hash="f9c5dd40cee982eeb2c8d6d739e42f9d"/></dir><file name="Api.php" hash="fadb95acd58027f40bca5b9847dc2eda"/></dir><file name="Observer.php" hash="43042a9964726ca91872a8de47549e99"/><dir name="Productutility"><dir name="Api"><file name="V2.php" hash="a1bd1116478d223868418efb3afe2a34"/></dir><file name="Api.php" hash="83e30c3b4526c851d8ff31dd73957495"/></dir><dir name="Source"><file name="NchannelEnvironment.php" hash="cf979a2ce627f3e20d1d04e55533e89f"/></dir></dir><dir name="controllers"><file name="IndexController.php" hash="04f02984743361ad17d0d9c85c05afc5"/></dir><dir name="etc"><file name="adminhtml.xml" hash="1c959ca1b60ae9fc0ea61107c4bf3a8d"/><file name="api.xml" hash="4e42287ce50f8b84be4c6f8e55c75942"/><file name="config.xml" hash="d6fad9a94ee017e15aca5c333f602af3"/><file name="system.xml" hash="87781e00b3eaae27e89ee3b71f9aba20"/><file name="wsdl.xml" hash="3c9716a3500bcc19931df521c044af61"/><file name="wsi.xml" hash="41f6baef07d7e977a3fbd26cb37bd5d2"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Nchannel_Communicator.xml" hash="698fe66f544b1bcf42154dcd4d621527"/></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><file name="FailedOrder.html" hash="545e3b6cc668ff58943d133c82418bbd"/></dir></dir></dir></target></contents>
+    <date>2013-11-12</date>
+    <time>15:33:52</time>
+    <contents><target name="magecommunity"><dir name="Nchannel"><dir name="Communicator"><dir name="Helper"><file name="Data.php" hash="09398676d1d6ed53f141f1ecb48e0c70"/></dir><dir name="Model"><file name="Api.php" hash="9001584aa011771215b4a26d31214998"/><dir name="Helloworld"><dir name="Api"><file name="V2.php" hash="f9c5dd40cee982eeb2c8d6d739e42f9d"/></dir><file name="Api.php" hash="fadb95acd58027f40bca5b9847dc2eda"/></dir><file name="Observer.php" hash="461f9acf6b47d6d53240b4f9ef5b3af3"/><dir name="Productutility"><dir name="Api"><file name="V2.php" hash="a1bd1116478d223868418efb3afe2a34"/></dir><file name="Api.php" hash="83e30c3b4526c851d8ff31dd73957495"/></dir><dir name="Source"><file name="NchannelEnvironment.php" hash="cf979a2ce627f3e20d1d04e55533e89f"/></dir></dir><dir name="controllers"><file name="IndexController.php" hash="04f02984743361ad17d0d9c85c05afc5"/></dir><dir name="etc"><file name="adminhtml.xml" hash="1c959ca1b60ae9fc0ea61107c4bf3a8d"/><file name="api.xml" hash="4e42287ce50f8b84be4c6f8e55c75942"/><file name="config.xml" hash="d6fad9a94ee017e15aca5c333f602af3"/><file name="system.xml" hash="87781e00b3eaae27e89ee3b71f9aba20"/><file name="wsdl.xml" hash="3c9716a3500bcc19931df521c044af61"/><file name="wsi.xml" hash="41f6baef07d7e977a3fbd26cb37bd5d2"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Nchannel_Communicator.xml" hash="698fe66f544b1bcf42154dcd4d621527"/></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><file name="FailedOrder.html" hash="545e3b6cc668ff58943d133c82418bbd"/></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>5.5.4</max></php></required></dependencies>
 </package>
