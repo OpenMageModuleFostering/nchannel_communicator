@@ -33,6 +33,9 @@
 		  <detachProductFromConfigurable translate="title" module="Communicator">
             <method>detachProductFromConfigurable</method>
           </detachProductFromConfigurable>
+		  <getConfigurableAttribute translate="title" module="Communicator">
+            <method>getConfigurableAttribute</method>
+          </getConfigurableAttribute>
         </methods>
       </Communicator_Productutility>
     </resources>

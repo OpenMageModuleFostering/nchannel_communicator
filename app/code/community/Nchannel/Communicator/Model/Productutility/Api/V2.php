@@ -6,15 +6,17 @@ class Nchannel_Communicator_Model_Productutility_Api_V2 extends Nchannel_Communi
 		Mage::log("LinkConfigurable fired!" . $url, null, 'nChannel_Communicator.log');
 		return "Hello World! My argument is : " . $configurableProductID;
 	}
-		public function attachProductToConfigurable( $childSku, $configurableProductID ) {
+	public function attachProductToConfigurable( $childSku, $configurableProductID ) {
 		Mage::log('attachProductToConfigurable: sku ' . $childSku,null,'nChannel_Communicator.log');
 		Mage::log('attachProductToConfigurable: pid ' . $configurableProductID,null,'nChannel_Communicator.log');
-		$configurableProduct = Mage::getModel('catalog/product')->load($configurableProductID);
-		$loader = Mage::getResourceModel( 'catalog/product_type_configurable' )->load($configurableProduct,$configurableProductID);
+		$model = Mage::getModel('catalog/product');
+		$configurableProduct = $model->load($configurableProductID);		
+		Mage::log('attachProductToConfigurable: Configurable Product ID: ' . print_r($configurableProduct->getId(),true),null, 'nChannel_Communicator.log');
+		$newModel = Mage::getModel('catalog/product');
+		$loader = Mage::getResourceModel( 'catalog/product_type_configurable' )->load($newModel,$configurableProductID);
 		$product = Mage::getModel('catalog/product')->loadByAttribute('sku',$childSku);
 
 		$ids = Mage::getModel('catalog/product_type_configurable')->getChildrenIds($configurableProductID);
-
 		$newids = array();
 		Mage::log('attachProductToConfigurable: current child product id output: ' . $product->getId(),null,'nChannel_Communicator.log');
 		
@@ -31,12 +33,11 @@ class Nchannel_Communicator_Model_Productutility_Api_V2 extends Nchannel_Communi
 		try{
 		Mage::log('attachProductToConfigurable: Saving Products', null, 'nChannel_Communicator.log');
 		Mage::log('attachProductToConfigurable: Configurable Product ID: ' . print_r($configurableProduct->getId(),true),null, 'nChannel_Communicator.log');
-		Mage::log('attachProductToConfigurable: Configurable Product Type: ' . print_r($configurableProduct->getTypeInstance(),true),null, 'nChannel_Communicator.log');
 		$loader->saveProducts( $configurableProduct, array_keys( $newids ) );
 		} catch(exception $ex)
 		{
 			array_pop($newids);
-			$loader->saveProducts( $configurableProduct, array_keys( $newids ) );
+			$loader->saveProducts( $test, array_keys( $newids ) );
 			Mage::log('attachProductToConfigurable: erorr ->' . $ex->getMessage(),null,'nChannel_Communicator.log');	
 		}
 		Mage::log('attachProductToConfigurable: Product '.$childSku.' was added', null, 'nChannel_Communicator.log');

@@ -55,6 +55,13 @@
   <message name="ProductutilityDetachProductFromConfigurableResponse">
     <part name="result" type="xsd:string" />
   </message>
+  <message name="ProductutilityGetConfigurableAttributeRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="configurableProductID" type="xsd:string" />
+  </message>
+  <message name="ProductutilityGetConfigurableAttributeResponse">
+    <part name="result" type="xsd:string" />
+  </message>
 
   <portType name="{{var wsdl.handler}}PortType">
     <operation name="CommunicatorHello">
@@ -86,6 +93,11 @@
       <documentation>Sets up configurable attributes. </documentation>
       <input message="typens:ProductutilityDetachProductFromConfigurableRequest" />
       <output message="typens:ProductutilityDetachProductFromConfigurableResponse" />
+    </operation>
+	<operation name="ProductutilityGetConfigurableAttribute">
+      <documentation>Sets up configurable attributes. </documentation>
+      <input message="typens:ProductutilityGetConfigurableAttributeRequest" />
+      <output message="typens:ProductutilityGetConfigurableAttributeResponse" />
     </operation>
   </portType>
 
@@ -137,6 +149,15 @@
       </output>
     </operation>
 	<operation name="ProductutilityDetachProductFromConfigurable">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+	<operation name="ProductutilityGetConfigurableAttribute">
       <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
       <input>
         <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
