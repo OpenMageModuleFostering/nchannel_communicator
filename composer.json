@@ -1,5 +1,5 @@
 {
-    "name": "OpenMageModuleFostering\/nChannel_Communicator",
+    "name": "openmage-module-fostering\/nchannel_communicator",
     "type": "magento-module",
     "license": "nChannel-EULA",
     "homepage": "",
