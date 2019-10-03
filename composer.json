@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/nChannel_Communicator",
+    "name": "OpenMageModuleFostering\/nChannel_Communicator",
     "type": "magento-module",
     "license": "nChannel-EULA",
     "homepage": "",
     "description": "nChannel Communicator allows for event driven communication with the nChannel API on creation of new orders.",
     "authors": [
-    {
-        "name": "nChannel",
-        "email": "jpepper@nchannel.com"
-    }
-],
+        {
+            "name": "nChannel",
+            "email": "jpepper@nchannel.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
